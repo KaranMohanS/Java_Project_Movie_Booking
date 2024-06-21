@@ -41,7 +41,7 @@ public class MovieService {
         return movie;
     }
 
-    public static Movie modify(long movie_id,String modifyfeild,String modifyfeildvalue) throws Exception
+    public static Movie modify(long movie_id,String modifyfeild,String modifyfeildvalue) throws Exception   // modify
     {
         File file=new File(filepath);
         File filetemp= new File("modify.txt");
@@ -119,7 +119,7 @@ public class MovieService {
        return moviefound;
     }
 
-    public static void printmovie() throws IOException
+    public static void printmovie() throws IOException  //print
     {
         File file=new File(filepath);
         FileReader fileReader=new FileReader(file);
