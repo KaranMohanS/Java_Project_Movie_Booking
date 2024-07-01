@@ -1,11 +1,10 @@
 package com.movie;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Movie {
 
-    public static List<Movie> m=new ArrayList<>();
+    /*public static List<Movie> m=new ArrayList<>();
     public static long addUser(Movie movie)
     {
         long movie_id=m.size()+1;
@@ -75,7 +74,7 @@ public class Movie {
         {
             x.display();
         }
-    }
+    }*/
 
 
     
