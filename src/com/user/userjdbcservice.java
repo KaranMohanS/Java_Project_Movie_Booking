@@ -86,7 +86,7 @@ public class userjdbcservice {
 
     }
 
-    public static void getuser() throws SQLException
+    public static void getuser() throws SQLException  // get
     {
         String path="jdbc:mysql://localhost:3306/movie";
         String username="root";

@@ -3,8 +3,10 @@ import com.movie.MovieService;
 import com.movie.Moviejdbcservice;
 import com.show.Show;
 import com.show.Showservice;
+import com.show.showjdbcservice;
 import com.theater.Theater;
 import com.theater.Theaterservice;
+import com.theater.theaterjdbcservice;
 import com.user.User;
 import com.user.UserService;
 import com.user.userjdbcservice;
@@ -40,9 +42,9 @@ public class App {
         //userjdbcservice.printusers();
         System.out.println("-------------------------------------------------");
 
-       // Movie movie1=new Movie(101, "leo", "action", "tamil");           // movie
+        Movie movie1=new Movie(101, "leo", "action", "tamil");           // movie
         //Movie movie2=new Movie(102,  "avengers", "action", "english");
-        //MovieService.addmovie(movie1);
+        //\MovieService.addmovie(movie1);
         //MovieService.addmovie(movie2);
         //MovieService.printmovie();
         //MovieService.deletMovie(102);
@@ -55,7 +57,7 @@ public class App {
         System.out.println("-------------------------------------------------");
         //Moviejdbcservice.addmovie();
         //Moviejdbcservice.getmovie();
-        Moviejdbcservice.updatemovie();
+        //Moviejdbcservice.updatemovie();
         //Moviejdbcservice.deletemovie();
         Moviejdbcservice.printmovie();
         
@@ -63,11 +65,12 @@ public class App {
 
         //Show show1=new Show(1001,"10.00 AM", "action", movie1, 200);
         //Show show2=new Show(1002,"10.00 AM", "action", movie2, 300);
+        //Show show3=new Show(333, "22", "comedy", movie1, 40);
         System.out.println("-------------------------------------------------");
 
 
-        //Showservice.deleteshow(1002);
-        //Showservice.addshow(show1);
+        //Showservice.deleteshow(333);
+        //Showservice.addshow(show3);
         //Showservice.addshow(show2);
         //Showservice.printshow();
         System.out.println("-------------------------------------------------");
@@ -75,6 +78,12 @@ public class App {
         //Showservice.getshow(1002, 102).display();
 
        // Showservice.modify(1002, "cost", "350").display();
+
+       ///showjdbcservice.addshow();
+       //showjdbcservice.deleteshow();
+       //showjdbcservice.getshow();
+       //showjdbcservice.updateshow();
+       showjdbcservice.printshow();
         System.out.println("-------------------------------------------------");
 
         //Show.addUser(show1);
@@ -101,9 +110,15 @@ public class App {
        // Theaterservice.addtheater(theater2);
         //Theaterservice.deletetheater(124);
         //Theaterservice.printtheater();
-        //System.out.println("-------------------------------------------------");       
+        System.out.println("-------------------------------------------------");       
         //Theaterservice.getTheater(124).display();
-        //System.out.println("-------------------------------------------------");       
+        //theaterjdbcservice.addtheater();
+        //theaterjdbcservice.updatetheater();
+        //theaterjdbcservice.gettheater();
+        //theaterjdbcservice.printtheater();
+        //theaterjdbcservice.deletetheater();
+        theaterjdbcservice.printtheater();
+        System.out.println("-------------------------------------------------");       
         //Theaterservice.modify(123, "location", "abc street sirumugai").display();
 
         
