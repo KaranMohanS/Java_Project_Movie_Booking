@@ -8,12 +8,14 @@ public class totaldetails {
 
     public static void total()
     {
-    String query="SELECT t.theater_id, t.name AS theater_name, t.location, " +
+    String query="SELECT b.book_id,b.book_date, "+
+                   "t.theater_id, t.name AS theater_name, t.location, " +
                    "s.show_id, s.show_time, " +
                    "m.id AS movie_id, m.name AS movie_name, m.genre, m.language, " +
                    "u.id AS user_id, u.name AS user_name, u.email, " +
                    "s.cost " +
-                   "FROM theater t " +
+                   "FROM booking b " +
+                   "JOIN theater t ON b.theater_id=t.theater_id "+
                    "JOIN show_details s ON t.show_id = s.show_id " +
                    "JOIN Movie m ON s.movie_id = m.id " +
                    "JOIN user u ON m.user_id = u.id";
@@ -24,7 +26,10 @@ public class totaldetails {
     ResultSet rs=p.executeQuery();
     
     while (rs.next()) {
-        int theaterId = rs.getInt("theater_id");
+
+            int bookid=rs.getInt("book_id");
+            String bookdate=rs.getString("book_date");
+            int theaterId = rs.getInt("theater_id");
             String theaterName = rs.getString("theater_name");
             String location = rs.getString("location");
             int showId = rs.getInt("show_id");
@@ -37,7 +42,9 @@ public class totaldetails {
             String userName = rs.getString("user_name");
             String email = rs.getString("email");
             int cost = rs.getInt("cost");
-
+            
+            System.out.println("Booking Id: "+bookid);
+            System.out.println("Booking Date: "+bookdate);
             System.out.println("Theater ID: " + theaterId);
             System.out.println("Theater Name: " + theaterName);
             System.out.println("Location: " + location);

@@ -1,4 +1,7 @@
 import com.totaldetails;
+import com.booking.Booking;
+import com.booking.Bookingjdbcconnection;
+import com.booking.Bookingservice;
 import com.movie.Movie;
 import com.movie.MovieService;
 import com.movie.Moviejdbcservice;
@@ -18,7 +21,7 @@ public class App {
         System.out.println("Hello, Wellcome");
 
         // Create a new user
-        //User user1 = new User(1, "John Doe", "email@dsd.com" , "password");
+        User user1 = new User(1, "John Doe", "email@dsd.com" , "password");
         //User user2 = new User(2, "Karan" , "karean@fsdf", "password");
         //User user3=new User(3, "mohan", "mohan1702@gmail.com", "1234");
         System.out.println("-------------------------------------------------");
@@ -43,7 +46,7 @@ public class App {
         //userjdbcservice.printusers();
         System.out.println("-------------------------------------------------");
 
-        //Movie movie1=new Movie(101, "leo", "action", "tamil");           // movie
+       // Movie movie1=new Movie(101, "leo", "action", "tamil");           // movie
         //Movie movie2=new Movie(102,  "avengers", "action", "english");
         //\MovieService.addmovie(movie1);
         //MovieService.addmovie(movie2);
@@ -61,7 +64,7 @@ public class App {
         //Moviejdbcservice.updatemovie();
         //Moviejdbcservice.deletemovie();
         Moviejdbcservice.printmovie();
-        Moviejdbcservice.totalmovie();
+        //Moviejdbcservice.totalmovie();
         
         System.out.println("-------------------------------------------------");
 
@@ -88,7 +91,7 @@ public class App {
        showjdbcservice.printshow();
 
         System.out.println("-------------------------------------------------");
-       showjdbcservice.totaldetails();
+       //showjdbcservice.totaldetails();
         //Show.addUser(show1);
         //Show.addUser(show2);
         //Show.printshow();
@@ -122,11 +125,26 @@ public class App {
         //theaterjdbcservice.deletetheater();
         theaterjdbcservice.printtheater();
         System.out.println("-------------------------------------------------");   
-        theaterjdbcservice.totaldetails();    
+        //theaterjdbcservice.totaldetails();    
         //Theaterservice.modify(123, "location", "abc street sirumugai").display();
 
         System.out.println("-------------------------------------------------");   
         System.out.println("-------------------------------------------------");   
+        //totaldetails.total();
+
+        System.out.println("-------------------------------------------------");   
+        System.out.println("-------------------------------------------------");  
+        
+        //Booking booking=new Booking(1, user1, movie1, show1, theater1);
+        //Bookingservice.addbooking(booking);
+       // Bookingservice.printbooking();
+
+        //Bookingjdbcconnection.addbook();
+        Bookingjdbcconnection.printbook();
+        //Bookingjdbcconnection.updatebook();
+        //Bookingjdbcconnection.getbook();
+        //Bookingjdbcconnection.delete();
+
         totaldetails.total();
 
         
