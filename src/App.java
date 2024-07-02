@@ -1,3 +1,4 @@
+import com.totaldetails;
 import com.movie.Movie;
 import com.movie.MovieService;
 import com.movie.Moviejdbcservice;
@@ -36,13 +37,13 @@ public class App {
         userjdbcservice.printusers();
 
         //userjdbcservice.adduser();
-        //userjdbcservice.deleteUser();
+       // userjdbcservice.deleteUser();
         //userjdbcservice.updateuser();
        // userjdbcservice.getuser();
         //userjdbcservice.printusers();
         System.out.println("-------------------------------------------------");
 
-        Movie movie1=new Movie(101, "leo", "action", "tamil");           // movie
+        //Movie movie1=new Movie(101, "leo", "action", "tamil");           // movie
         //Movie movie2=new Movie(102,  "avengers", "action", "english");
         //\MovieService.addmovie(movie1);
         //MovieService.addmovie(movie2);
@@ -60,6 +61,7 @@ public class App {
         //Moviejdbcservice.updatemovie();
         //Moviejdbcservice.deletemovie();
         Moviejdbcservice.printmovie();
+        Moviejdbcservice.totalmovie();
         
         System.out.println("-------------------------------------------------");
 
@@ -79,13 +81,14 @@ public class App {
 
        // Showservice.modify(1002, "cost", "350").display();
 
-       ///showjdbcservice.addshow();
+       //showjdbcservice.addshow();
        //showjdbcservice.deleteshow();
        //showjdbcservice.getshow();
        //showjdbcservice.updateshow();
        showjdbcservice.printshow();
-        System.out.println("-------------------------------------------------");
 
+        System.out.println("-------------------------------------------------");
+       showjdbcservice.totaldetails();
         //Show.addUser(show1);
         //Show.addUser(show2);
         //Show.printshow();
@@ -118,8 +121,13 @@ public class App {
         //theaterjdbcservice.printtheater();
         //theaterjdbcservice.deletetheater();
         theaterjdbcservice.printtheater();
-        System.out.println("-------------------------------------------------");       
+        System.out.println("-------------------------------------------------");   
+        theaterjdbcservice.totaldetails();    
         //Theaterservice.modify(123, "location", "abc street sirumugai").display();
+
+        System.out.println("-------------------------------------------------");   
+        System.out.println("-------------------------------------------------");   
+        totaldetails.total();
 
         
 

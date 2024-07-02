@@ -14,7 +14,7 @@ public class UserService {
 
     static String usersFilePath = "users.txt";
 
-    public static long addUser(User user) throws IOException {
+    public static long addUser(User user) throws IOException {  // add
         File file = new File(usersFilePath);
 
         //write user to file as csv
@@ -24,7 +24,7 @@ public class UserService {
         return user.getId();
     }
 
-    public static User getUser(long id) throws Exception {
+    public static User getUser(long id) throws Exception {   // get
         //read from file and return matching user id
 
         User user = null;
@@ -129,6 +129,7 @@ public class UserService {
         while ((i = fileReader.read()) != -1) {
             System.out.print((char) i);
         }
+        fileReader.close();
     }
 
 }

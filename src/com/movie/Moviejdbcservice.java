@@ -1,12 +1,11 @@
 package com.movie;
-
-import java.beans.Statement;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import com.databaseconnection;
 
 
 public class Moviejdbcservice {
@@ -14,13 +13,9 @@ public class Moviejdbcservice {
 
     public static void printmovie() throws SQLException       // print 
     {
-        String path="jdbc:mysql://localhost:3306/movie";
-        String username="root";
-        String password="1234";
-
         String query="select * from Movie";
     try{
-        Connection connection=DriverManager.getConnection(path,username,password);
+        Connection connection=databaseconnection.getConnection();
         java.sql.Statement st=connection.createStatement();
         ResultSet rs=st.executeQuery(query);
 
@@ -39,14 +34,7 @@ public class Moviejdbcservice {
 
     public static void addmovie() throws SQLException    // addmovie
     {
-        String path="jdbc:mysql://localhost:3306/movie";
-        String username="root";
-        String password="1234";
-        
         Scanner scanner=new Scanner(System.in);
-        System.out.print("Enter id: ");
-        int id=scanner.nextInt();
-        scanner.nextLine();
         System.out.print("Enter name: ");
         String name=scanner.nextLine();
         System.out.print("Enter genre: ");
@@ -55,15 +43,14 @@ public class Moviejdbcservice {
         String lang=scanner.nextLine();
         scanner.close();
 
-        String query="insert into Movie values(?,?,?,?)";
+        String query="insert into Movie(name,genre,language) values(?,?,?)";
   
-        Connection connection=DriverManager.getConnection(path, username, password);
+        Connection connection=databaseconnection.getConnection();
         PreparedStatement p=connection.prepareStatement(query);
         
-        p.setInt(1, id);
-        p.setString(2, name);
-        p.setString(3, genre);
-        p.setString(4, lang);
+        p.setString(1, name);
+        p.setString(2, genre);
+        p.setString(3, lang);
         int row=p.executeUpdate();
         System.out.println("number of row aggected :"+row);
         connection.close();
@@ -72,18 +59,13 @@ public class Moviejdbcservice {
 
         public static void getmovie() throws SQLException    // get movie
         {
-            
-        String path="jdbc:mysql://localhost:3306/movie";
-        String username="root";
-        String password="1234";
         Scanner scanner=new Scanner(System.in);
-       
         System.out.println("enter get query");
         String query=scanner.nextLine();
         scanner.close();
         
         try{
-        Connection connection=DriverManager.getConnection(path, username, password);
+        Connection connection=databaseconnection.getConnection();
         java.sql.Statement st=connection.createStatement();
         ResultSet rs=st.executeQuery(query);
          
@@ -101,16 +83,12 @@ public class Moviejdbcservice {
 
     public static void updatemovie() throws SQLException //update
     {
-        String path="jdbc:mysql://localhost:3306/movie";
-        String username="root";
-        String password="1234";
         Scanner scanner=new Scanner(System.in);
-       
         System.out.println("enter update query");
         String query=scanner.nextLine();
         scanner.close();
 
-        Connection connection=DriverManager.getConnection(path, username, password);
+        Connection connection=databaseconnection.getConnection();
         PreparedStatement p=connection.prepareStatement(query);
 
         int row=p.executeUpdate();
@@ -120,21 +98,34 @@ public class Moviejdbcservice {
     }
 
 
-    public static void deletemovie() throws SQLException
+    public static void deletemovie() throws SQLException  // delete
     {
-      
-        String path="jdbc:mysql://localhost:3306/movie";
-        String username="root";
-        String password="1234";
-        Scanner scanner=new Scanner(System.in);
-       
-        System.out.println("enter update query");
+        Scanner scanner=new Scanner(System.in);  
+        System.out.println("enter delete query");
         String query=scanner.nextLine();
         scanner.close();
 
-        Connection connection=DriverManager.getConnection(path, username, password);
+        Connection connection=databaseconnection.getConnection();
         PreparedStatement p=connection.prepareStatement(query);
         int row=p.executeUpdate();
         System.out.println("number of row affected :"+row);
+    }
+
+    
+    public static void totalmovie() throws SQLException   // total
+    {
+        String query="select m.id,m.name,m.genre,m.language, "+
+        "u.id,u.name,u.email "+
+        "from Movie as m "+
+        "left join user as u on m.user_id=u.id";
+        Connection connection=databaseconnection.getConnection();
+        PreparedStatement p=connection.prepareStatement(query);
+        ResultSet rs=p.executeQuery();
+
+        while (rs.next()) {
+            System.out.println("movie id :"+rs.getInt(1)+" "+"movie name :"+rs.getString(2)+" "+"movie genre :"+rs.getString(3)+" "
+            +"movie language :"+rs.getString(4)+" "+"user id :"+rs.getInt(5)+" "+"user name :"+rs.getString(6)+" "+"user email :"+rs.getString(7));
+        }
+        rs.close();
     }
 }
