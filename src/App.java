@@ -132,19 +132,19 @@ public class App {
         System.out.println("-------------------------------------------------");   
         //totaldetails.total();
 
-        System.out.println("-------------------------------------------------");   
-        System.out.println("-------------------------------------------------");  
+       
         
         //Booking booking=new Booking(1, user1, movie1, show1, theater1);
         //Bookingservice.addbooking(booking);
        // Bookingservice.printbooking();
 
-        //Bookingjdbcconnection.addbook();
+       // Bookingjdbcconnection.addbook();
         Bookingjdbcconnection.printbook();
         //Bookingjdbcconnection.updatebook();
         //Bookingjdbcconnection.getbook();
         //Bookingjdbcconnection.delete();
-
+        System.out.println("-------------------------------------------------");   
+        System.out.println("-------------------------------------------------");  
         totaldetails.total();
 
         

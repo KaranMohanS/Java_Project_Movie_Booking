@@ -6,6 +6,9 @@ public class Booking {
     
     int id;
     String date;
+    int seats;
+    String seat_type;
+    String payment_status;
     Theater theater;
     public Booking(int id, String date, Theater theater) {
         this.id = id;

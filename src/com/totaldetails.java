@@ -8,7 +8,7 @@ public class totaldetails {
 
     public static void total()
     {
-    String query="SELECT b.book_id,b.book_date, "+
+    String query="SELECT b.book_id,b.no_seat,b.seat_type,b.payment_method,b.payment_status,b.screen_no,b.book_date, "+
                    "t.theater_id, t.name AS theater_name, t.location, " +
                    "s.show_id, s.show_time, " +
                    "m.id AS movie_id, m.name AS movie_name, m.genre, m.language, " +
@@ -28,6 +28,11 @@ public class totaldetails {
     while (rs.next()) {
 
             int bookid=rs.getInt("book_id");
+            int seat=rs.getInt("no_seat");
+            String seattype=rs.getString("seat_type");
+            String payment=rs.getString("payment_method");
+            String paymentstatus=rs.getString("payment_status");
+            int screen=rs.getInt("screen_no");
             String bookdate=rs.getString("book_date");
             int theaterId = rs.getInt("theater_id");
             String theaterName = rs.getString("theater_name");
@@ -44,6 +49,11 @@ public class totaldetails {
             int cost = rs.getInt("cost");
             
             System.out.println("Booking Id: "+bookid);
+            System.out.println("Number of Seats: "+seat);
+            System.out.println("Seat type: "+seattype);
+            System.out.println("Payment Method: "+payment);
+            System.out.println("Payment Status: "+paymentstatus);
+            System.out.println("Screen Number: "+screen);
             System.out.println("Booking Date: "+bookdate);
             System.out.println("Theater ID: " + theaterId);
             System.out.println("Theater Name: " + theaterName);
