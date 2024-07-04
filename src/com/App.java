@@ -192,7 +192,7 @@ public class App {
                 userjdbcservice.adduser();
                 System.out.println("account created successfully");
         }
-        else
+        else if(account.equals("cancel"))
         {
             System.out.println("Thank you ");
             break;
