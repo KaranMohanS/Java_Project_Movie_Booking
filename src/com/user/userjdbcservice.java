@@ -20,7 +20,7 @@ public class userjdbcservice {
         String email=scanner.nextLine();
         System.out.print("Enter password: ");
         String pass=scanner.nextLine();
-        scanner.close();
+        //scanner.close();
         String query="insert into user(name,email,password) values(?,?,?)";
         
         
@@ -104,6 +104,9 @@ public class userjdbcservice {
         rs.close();
         st.close();
     }
+
+
+   
    
     
 }

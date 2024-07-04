@@ -14,7 +14,7 @@ import com.user.User;
 
 public class Bookingservice {
     
-    public static String path="booking.txt";
+    /*public static String path="booking.txt";
 
     public static void addbooking(Booking booking) throws IOException
     {
@@ -23,7 +23,7 @@ public class Bookingservice {
         
         User user=booking.getUser();
         Movie movie=booking.getMovie();
-        Show show=booking.getShow();
+        Show show=theater.getShow();
         Theater theater=booking.getTheater();
         fw.write(booking.getId()+","+user.getId()+","+user.getName()+","+user.getEmail()+","+movie.getMovie_id()+","+movie.getMovie_name()+","+movie.getMovie_genre()
         +","+movie.getMovie_lang()+","+show.getShowid()+","+show.getTime()+","+show.getCost()+","+theater.getTheater_id()+","+theater.getTheater_name()+","+theater.getTheater_location()+"\n");
@@ -63,5 +63,5 @@ public class Bookingservice {
                booking=new Booking(Integer.parseInt(arr[0]), user, null, null, null);
             }
         }
-    }
+    }*/
 }

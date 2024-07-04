@@ -1,5 +1,6 @@
 package com.movie;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,16 +42,20 @@ public class Moviejdbcservice {
         String genre=scanner.nextLine();
         System.out.print("Enter language: ");
         String lang=scanner.nextLine();
+        System.out.println("enter date: ");
+        String date=scanner.nextLine();
         scanner.close();
 
-        String query="insert into Movie(name,genre,language) values(?,?,?)";
-  
+        String query="insert into Movie(name,genre,language) values(?,?,?,?)";
+        Date sqlDate = Date.valueOf(date);
         Connection connection=databaseconnection.getConnection();
         PreparedStatement p=connection.prepareStatement(query);
         
         p.setString(1, name);
         p.setString(2, genre);
         p.setString(3, lang);
+        p.setDate(4, sqlDate);
+
         int row=p.executeUpdate();
         System.out.println("number of row aggected :"+row);
         connection.close();
@@ -71,7 +76,7 @@ public class Moviejdbcservice {
          
         while (rs.next()) {
 
-            System.out.println("id :"+rs.getInt(1)+" "+"name :"+rs.getString(2)+" "+"genre :"+rs.getString(3)+" "+"language :"+rs.getString(4));
+            System.out.println("id :"+rs.getInt(1)+" "+"name :"+rs.getString(2)+" "+"genre :"+rs.getString(3)+" "+"language :"+rs.getString(4)+"date: "+rs.getString(5));
         }
        }
        catch(Exception e)
@@ -128,4 +133,7 @@ public class Moviejdbcservice {
         }
         rs.close();
     }
+
+
+
 }
